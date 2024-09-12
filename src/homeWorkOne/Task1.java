@@ -1,12 +1,14 @@
 package src.homeWorkOne;
 
-//Задание 1
-//
-//        В переменной minutes лежит число от 0 до 59.
-//        Написать функцию, которая принимает в качестве параметра значение переменной minutes и выводит на консоль
-//        в какую четверть часа попадает это число (в первую, вторую, третью или четвертую).
-//
-//        Протестировать функцию в main.
+/**
+ * Задание 1
+ *
+ *         В переменной minutes лежит число от 0 до 59.
+ *         Написать функцию, которая принимает в качестве параметра значение переменной minutes и выводит на консоль
+ *         в какую четверть часа попадает это число (в первую, вторую, третью или четвертую).
+ *
+ *         Протестировать функцию в main.
+ */
 
 public class Task1 {
     public static void main(String[] args) {
@@ -26,7 +28,7 @@ public class Task1 {
         getQuarterOfHour(minutes6);
     }
 
-    public static void getQuarterOfHour(int minutes) {
+    private static void getQuarterOfHour(int minutes) {
         if (minutes <= 15) {
             System.out.println(minutes + " falls in the first quarter");
         } else if (minutes <= 30) {
