@@ -1,5 +1,10 @@
 package src.homeWorkThree.task1;
 
+import src.homeWorkThree.task1.building.Apartment;
+import src.homeWorkThree.task1.building.Floor;
+import src.homeWorkThree.task1.building.House;
+import src.homeWorkThree.task1.building.Room;
+
 import java.util.Random;
 
 /**
@@ -66,10 +71,10 @@ public class Task1 {
     private static void printAllInformation(House house) {
         house.print();
         Floor[] floors = house.getFloors();
-        for (int floor = 0; floor < floors.length; floor++) {
-            floors[floor].print();
-            for (int apartment = 0; apartment < floors[floor].getApartments().length; apartment++) {
-                Apartment[] apartments = floors[floor].getApartments();
+        for (Floor floor : floors) {
+            floor.print();
+            for (int apartment = 0; apartment < floor.getApartments().length; apartment++) {
+                Apartment[] apartments = floor.getApartments();
                 apartments[apartment].print();
                 for (int room = 0; room < apartments[apartment].getRooms().length; room++) {
                     Room[] rooms = apartments[apartment].getRooms();

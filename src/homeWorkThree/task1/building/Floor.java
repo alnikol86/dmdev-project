@@ -1,9 +1,8 @@
-package src.homeWorkThree.task1;
+package src.homeWorkThree.task1.building;
 
-import java.util.Arrays;
 
-class Floor {
-    private int floorNumber;
+public class Floor {
+    private Integer floorNumber;
     private Apartment[] apartments;
 
     public Floor(int floorNumber, Apartment[] apartments) {

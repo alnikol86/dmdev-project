@@ -47,8 +47,8 @@ public class Task2 {
 
     private static int sumOfDigitsInArray(int[] intArray) {
         int acc = 0;
-        for (int i = 0; i < intArray.length; i++) {
-            acc += intArray[i];
+        for (int i : intArray) {
+            acc += i;
         }
         return acc;
     }

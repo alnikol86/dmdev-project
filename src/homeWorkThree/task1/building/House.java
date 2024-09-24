@@ -1,7 +1,7 @@
-package src.homeWorkThree.task1;
+package src.homeWorkThree.task1.building;
 
-class House {
-    private int homeNumber;
+public class House {
+    private Integer homeNumber;
     private Floor[] floors;
 
     public House(int homeNumber, Floor[] floors) {

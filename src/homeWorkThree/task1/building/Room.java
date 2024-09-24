@@ -1,7 +1,7 @@
-package src.homeWorkThree.task1;
+package src.homeWorkThree.task1.building;
 
 public class Room {
-    private boolean walkThroughRoom;
+    private Boolean walkThroughRoom;
 
     public Room(boolean walkThroughRoom) {
         this.walkThroughRoom = walkThroughRoom;
