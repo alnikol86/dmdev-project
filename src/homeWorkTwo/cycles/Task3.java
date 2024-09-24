@@ -45,13 +45,13 @@ public class Task3 {
 
 
     // Метод расчета текущей зарплаты
-    public static double calculateSalary(int month, double startingSalary, double salaryIncrease, int interval) {
+    private static double calculateSalary(int month, double startingSalary, double salaryIncrease, int interval) {
         int periods = (month - 1) / interval; // Количество периодов повышения зарплаты
         return startingSalary + periods * salaryIncrease;
     }
 
     // Метод расчета доходности на брокерском счете
-    public static double calculateInvestmentYield(double brokerAccount, double investmentYield) {
+    private static double calculateInvestmentYield(double brokerAccount, double investmentYield) {
         return brokerAccount * investmentYield;
     }
 }

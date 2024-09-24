@@ -1,7 +1,5 @@
 package src.homeWorkTwo.arrays;
 
-import java.util.Arrays;
-
 /**
  * Дан одномерный массив целых чисел.
  * Написать функцию, удаляющую из него все отрицательные элементы (удалить - значит создать новый массив с только положительными элементами).
@@ -11,28 +9,40 @@ import java.util.Arrays;
 public class Task1 {
     public static void main(String[] args) {
         int[] arr = {3, 5, -6, 3, 2, -9, 0, -123};
-        int[] arrResult = getArrayWithPositiveNumbers(arr);
-        System.out.println(Arrays.toString(arr));
-        System.out.println(Arrays.toString(arrResult));
-
+        int length = calculateLengthOfArray(arr);
+        int[] newArr = createNewArray(arr, length);
+        printArray(newArr);
     }
 
-    private static int[] getArrayWithPositiveNumbers (int[] array) {
-        int[] tempArray = new int[array.length];
-        int count = 0;
-
-        for (int el : array) {
-            if (el >= 0) {
-                tempArray[count++] = el;
+    private static int calculateLengthOfArray(int[] array) {
+        int length = 0;
+        for (int j : array) {
+            if (j >= 0) {
+                length++;
             }
         }
+        return length;
+    }
 
-        int [] positiveArray = new int[count];
-
-        for (int i = 0; i < positiveArray.length; i++) {
-            positiveArray[i] = tempArray[i] * count;
+    private static int[] createNewArray(int[] array, int length) {
+        int[] newArray = new int[length];
+        int count = 0;
+        for (int j : array) {
+            if (j >= 0) {
+                newArray[count] = getAnInt(j, newArray);
+                count++;
+            }
         }
+        return newArray;
+    }
 
-        return positiveArray;
+    private static int getAnInt(int j, int[] newArray) {
+        return j * newArray.length;
+    }
+
+    private static void printArray(int[] array) {
+        for (int element : array) {
+            System.out.print(element + " ");
+        }
     }
 }
