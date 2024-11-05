@@ -2,14 +2,13 @@ package src.homeWorkNine.service;
 
 import src.homeWorkNine.model.Complaint;
 import src.homeWorkNine.parser.ComplaintParser;
-
 import java.io.IOException;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 public class ComplaintService {
-    private List<Dispatcher> dispatchers;
+    private final List<Dispatcher> dispatchers;
     private ComplaintParser parser;
 
     public ComplaintService(List<Dispatcher> dispatchers, ComplaintParser parser) {
@@ -21,8 +20,8 @@ public class ComplaintService {
         List<Complaint> complaints = parser.parseComplaintFromFile(logFilePath);
         ExecutorService executor = Executors.newFixedThreadPool(dispatchers.size());
         for (int i = 0; i < complaints.size(); i++) {
-            final int dispatcherIndex = i % dispatchers.size(); // Индекс диспетчера для обработки текущей жалобы
-            final Complaint complaint = complaints.get(i);
+            int dispatcherIndex = i % dispatchers.size(); // Индекс диспетчера для обработки текущей жалобы
+            Complaint complaint = complaints.get(i);
             executor.execute(() -> dispatchers.get(dispatcherIndex).handleComplaint(complaint));
         }
         executor.shutdown();

@@ -8,7 +8,7 @@ public class ComplaintLogger {
     try (FileWriter writer = new FileWriter(filePath, true)) {
         writer.write(logEntry + System.lineSeparator());
     } catch (IOException e) {
-        e.printStackTrace();
+        System.err.println("Error writing to file: " + e.getMessage());
     }
     }
 }

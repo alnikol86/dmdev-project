@@ -9,6 +9,9 @@ import java.time.format.DateTimeFormatter;
 public class Dispatcher {
     private String name;
 
+    private static final String DATE_PATTERN = "yyyy-MM-dd HH:mm";
+    private static final String PATH_TO_FILE = "resources/call_log.txt";
+
     public Dispatcher(String name) {
         this.name = name;
     }
@@ -30,7 +33,7 @@ public class Dispatcher {
 
     private void logCall(Complaint complaint) {
         String formattedPhone = PhoneNumberFormatter.format(complaint.getPhoneNumber());
-        String logEntry = String.format("%d, %s, %s", complaint.getId(), LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm")), formattedPhone);
-        ComplaintLogger.logToFile("resources/call_log.txt", logEntry);
+        String logEntry = String.format("%d, %s, %s", complaint.getId(), LocalDateTime.now().format(DateTimeFormatter.ofPattern(DATE_PATTERN)), formattedPhone);
+        ComplaintLogger.logToFile(PATH_TO_FILE, logEntry);
     }
 }
